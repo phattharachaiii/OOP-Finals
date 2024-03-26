@@ -1,7 +1,4 @@
 package LAB9;
-
-
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -21,15 +18,15 @@ public class Lab9_Collections {
     static Employee preeda = new Employee("preeda");
     static Employee pramote = new Employee("pramote");
     public static void main(String[] args) {
-        ex1();
-        ex2();
-        ex3();
-        q6();
-        q7();
-        q8();
-        q9();
-        q10();
-        q11();
+        // ex1();
+        // ex2();
+        // ex3();
+        // q6();
+        // q7();
+        // q8();
+        // q9();
+        // q10();
+        // q11();
         q12();
         q13();
         q14();
@@ -46,8 +43,6 @@ public class Lab9_Collections {
         String s2 = Integer.toHexString(id2);
         System.out.println(s1);
         System.out.println(s2 + " " + s1.compareTo(s2));
-        System.out.println(emp1.equals(emp2));
-        System.out.println(emp1.getName().equals(emp2.getName()));
     }
 
     static void ex2() {
@@ -164,7 +159,7 @@ public class Lab9_Collections {
         // q8 - q11 yindee preeda pramote from Lab9_xxyyyy
         List<Employee> list1 = Arrays.asList(yindee, pramote);
         List<Employee> list2 = Arrays.asList(pramote, preeda);
-        Set<Employee> empSet = new HashSet<>(list1);
+        Set<Employee> empSet = new HashSet<>(list1); //ไม่ให้มีตัวซ้ำ
         empSet.addAll(list2);
         List<Employee> q8_ans = new ArrayList<>(empSet);
         System.out.println(q8_ans);
@@ -173,14 +168,14 @@ public class Lab9_Collections {
     static void q9() {
         Set<Employee> empSet1 = new HashSet<>(Arrays.asList(yindee, preeda, pramote));
         Set<Employee> empSet2 = new HashSet<>(Arrays.asList(yindee, pramote));
-        empSet1.retainAll(empSet2);
+        empSet1.retainAll(empSet2);//ที่มีตัวซ้ำจาก2Set
         System.out.println(empSet1);
     }
 
     static void q10() {
         Set<Employee> empSet1 = new HashSet<>(Arrays.asList(yindee, preeda, pramote));
         Set<Employee> empSet2 = new HashSet<>(Arrays.asList(yindee, pramote));
-        empSet1.removeAll(empSet2);
+        empSet1.removeAll(empSet2);//เก็บเฉพาะที่อยู่ในempSet1ไม่อยู่ในEmpset2
         System.out.println(empSet1);
     }
 
@@ -262,7 +257,7 @@ class TestCollections {
     static {
         empList = new ArrayList<>();
 
-        try (Scanner input = new Scanner(Paths.get("lAB9/names.csv"))) {
+        try (Scanner input = new Scanner(Paths.get("names.csv"))) {
             input.nextLine(); // skip first row
             while (input.hasNext()) {
                 String row = input.nextLine().trim();
